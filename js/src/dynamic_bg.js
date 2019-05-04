@@ -1,5 +1,5 @@
 "use strict"
-   
+
 document.addEventListener("DOMContentLoaded", function() {
     let paused = false
     let canvas = document.getElementById("galaxy")
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Configuration
     let starRadius = 3
-    let starSpeed = 0.5
+    let starSpeed = 0.2
     let starCount = randomRange(100, 300)
     let starDirection = 145
 
@@ -108,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let update = () => {
         if (!paused) {
             ctx.clearRect(0, 0, width, height)
+
+            
 
             
 
