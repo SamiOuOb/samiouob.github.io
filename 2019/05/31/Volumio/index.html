@@ -89,17 +89,27 @@
 
 
 
-<meta name="description" content="系統環境空機一台利用rufus將Kali Linux iso燒入USB隨身碟製作安裝碟 BUG描述安裝時顯示1無法探測並掛載光碟">
+<meta name="description" content="前言之前提到，我從去德國交換的學長手中接下了數台樹莓派，不過暫時沒有需要用到他們的地方，後來想想與其放在那邊生灰塵，不如拿來組個PiFi DAC來推我的耳罩看看(? 其實我本來就是個喜歡玩耳機的肥宅，不過手邊只有一個便宜耳擴，卻沒有堪用的DAP，這 怎 麼 能 忍 呢 !所以我就決定動手做了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Debug備忘錄] Kali Linux 無法探測並掛載光碟">
-<meta property="og:url" content="http://samiouob.github.io/2019/05/25/Kila Linux 無法探測並掛載光碟/index.html">
+<meta property="og:title" content="[樹莓派 Raspberry Pi] 用 樹莓派 + volumio 製作HIFI播放器吧!">
+<meta property="og:url" content="http://samiouob.github.io/2019/05/31/Volumio/index.html">
 <meta property="og:site_name" content="救救肝苦人">
-<meta property="og:description" content="系統環境空機一台利用rufus將Kali Linux iso燒入USB隨身碟製作安裝碟 BUG描述安裝時顯示1無法探測並掛載光碟">
+<meta property="og:description" content="前言之前提到，我從去德國交換的學長手中接下了數台樹莓派，不過暫時沒有需要用到他們的地方，後來想想與其放在那邊生灰塵，不如拿來組個PiFi DAC來推我的耳罩看看(? 其實我本來就是個喜歡玩耳機的肥宅，不過手邊只有一個便宜耳擴，卻沒有堪用的DAP，這 怎 麼 能 忍 呢 !所以我就決定動手做了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-25T12:39:47.232Z">
+<meta property="og:image" content="https://mash.in.th/wp-content/uploads/2018/04/volumio-logo.png">
+<meta property="og:image" content="https://i.imgur.com/WC4tLLg.png">
+<meta property="og:image" content="https://i.imgur.com/1oyK5GS.jpg">
+<meta property="og:image" content="https://i.imgur.com/4CiJpaT.jpg">
+<meta property="og:image" content="https://i.imgur.com/aSN9q3r.jpg">
+<meta property="og:image" content="https://i.imgur.com/YviWvH8.jpg">
+<meta property="og:image" content="https://i.imgur.com/47c41iL.jpg">
+<meta property="og:image" content="https://i.imgur.com/6L7cGxE.jpg">
+<meta property="og:image" content="https://i.imgur.com/WQ5LFFi.png">
+<meta property="og:updated_time" content="2019-05-31T14:00:55.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Debug備忘錄] Kali Linux 無法探測並掛載光碟">
-<meta name="twitter:description" content="系統環境空機一台利用rufus將Kali Linux iso燒入USB隨身碟製作安裝碟 BUG描述安裝時顯示1無法探測並掛載光碟">
+<meta name="twitter:title" content="[樹莓派 Raspberry Pi] 用 樹莓派 + volumio 製作HIFI播放器吧!">
+<meta name="twitter:description" content="前言之前提到，我從去德國交換的學長手中接下了數台樹莓派，不過暫時沒有需要用到他們的地方，後來想想與其放在那邊生灰塵，不如拿來組個PiFi DAC來推我的耳罩看看(? 其實我本來就是個喜歡玩耳機的肥宅，不過手邊只有一個便宜耳擴，卻沒有堪用的DAP，這 怎 麼 能 忍 呢 !所以我就決定動手做了。">
+<meta name="twitter:image" content="https://mash.in.th/wp-content/uploads/2018/04/volumio-logo.png">
 
 
 
@@ -129,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://samiouob.github.io/2019/05/25/Kila Linux 無法探測並掛載光碟/">
+  <link rel="canonical" href="http://samiouob.github.io/2019/05/31/Volumio/">
 
 
 
 
 
-  <title>[Debug備忘錄] Kali Linux 無法探測並掛載光碟 | 救救肝苦人</title>
+  <title>[樹莓派 Raspberry Pi] 用 樹莓派 + volumio 製作HIFI播放器吧! | 救救肝苦人</title>
   
 
 
@@ -253,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://samiouob.github.io/2019/05/25/Kila Linux 無法探測並掛載光碟/">
+    <link itemprop="mainEntityOfPage" href="http://samiouob.github.io/2019/05/31/Volumio/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sami">
@@ -270,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Debug備忘錄] Kali Linux 無法探測並掛載光碟</h1>
+          <h1 class="post-title" itemprop="name headline">[樹莓派 Raspberry Pi] 用 樹莓派 + volumio 製作HIFI播放器吧!</h1>
         
 
         <div class="post-meta">
@@ -282,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-25T20:32:18+08:00">
-                2019-05-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:06:07+08:00">
+                2019-05-31
               </time>
             
 
@@ -325,14 +335,35 @@
       
 
       
-        <h2 id="系統環境"><a href="#系統環境" class="headerlink" title="系統環境"></a>系統環境</h2><p>空機一台<br>利用rufus將Kali Linux iso燒入USB隨身碟製作安裝碟</p>
-<h2 id="BUG描述"><a href="#BUG描述" class="headerlink" title="BUG描述"></a>BUG描述</h2><p>安裝時顯示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">無法探測並掛載光碟</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="BUG原因"><a href="#BUG原因" class="headerlink" title="BUG原因"></a>BUG原因</h2><p>不明<br>疑似Kali在使用USB安裝時<br>會錯誤掛載成光碟機</p>
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>1.使用Win32DiskImager製作USB安裝碟<br>(使用rufus無法安裝成功)</p>
-<p>2.遇到無法探測並掛載光碟時<br>重插USB再嘗試重新掛載<br>直到出現<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">介面出錯提示</span><br></pre></td></tr></table></figure></p>
-<p>再選擇<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">探測並掛載光碟</span><br></pre></td></tr></table></figure></p>
-<p>即可解決問題</p>
+        <p><img src="https://mash.in.th/wp-content/uploads/2018/04/volumio-logo.png" alt="LOGO"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前提到，我從去德國交換的學長手中接下了數台樹莓派，<br>不過暫時沒有需要用到他們的地方，<br>後來想想與其放在那邊生灰塵，<br>不如拿來組個<strong>PiFi DAC</strong>來推我的耳罩看看(?</p>
+<p>其實我本來就是個喜歡玩耳機的肥宅，<br>不過手邊只有一個便宜耳擴，<br>卻沒有堪用的DAP，<br><strong>這 怎 麼 能 忍 呢 !</strong><br>所以我就決定動手做了。<br><a id="more"></a></p>
+<h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><p>Raspberry Pi 3 B+ x 1<br>記憶卡 x 1<br>USB3.0 隨身碟 x 1</p>
+<p><strong>當然還有這次的主角</strong><br>HiFi DAC + x 1</p>
+<h2 id="OS選擇"><a href="#OS選擇" class="headerlink" title="OS選擇"></a>OS選擇</h2><p>我選擇使用比較多人用的 volumio 作為OS，<br>好處是<strong>使用簡單</strong>、<strong>設定齊全</strong>，<br>也支援大部分的樹莓派DAC擴充版，十分方便。</p>
+<p>除此之外就是，volumio有很多外掛可以用，<br>有了外掛他甚至還能<strong>串流播放Youtube、Spotify</strong>的音樂。</p>
+<h2 id="Volumio-安裝"><a href="#Volumio-安裝" class="headerlink" title="Volumio 安裝"></a>Volumio 安裝</h2><h3 id="下載映像檔"><a href="#下載映像檔" class="headerlink" title="下載映像檔"></a>下載映像檔</h3><p>到官網 <a href="https://volumio.org/get-started/" target="_blank" rel="noopener"><strong>下載 volumio</strong></a>，<br>點選下載頁面的 Download 就會開始下載。</p>
+<p><img src="https://i.imgur.com/WC4tLLg.png" alt></p>
+<p>下載完後將ZIP檔解壓縮。</p>
+<h3 id="將映像檔燒進micorSD"><a href="#將映像檔燒進micorSD" class="headerlink" title="將映像檔燒進micorSD"></a>將映像檔燒進micorSD</h3><p>volumio 也是利用 <a href="https://sourceforge.net/projects/win32diskimager/" target="_blank" rel="noopener"><strong>win32diskimager</strong></a> 這個程式進行燒錄，<br>操作過程跟在<a href="https://samiouob.github.io/2019/05/04/Raspberry-Pi-3/#more"><strong>[Raspberry Pi 3 B+] 拿到樹莓派後我該做什麼？</strong></a>中講過的一樣，<br>安裝完成後把記憶卡塞進樹莓派就能開機摟，<br>第一次開機由於會進行一些程式的設定跟初始化，<br>所以<strong>會花比較多時間</strong>，當可以搜尋到名為volumio的WIFI時，<br>代表已經開機完成了。</p>
+<h2 id="Volumio-初次設定"><a href="#Volumio-初次設定" class="headerlink" title="Volumio 初次設定"></a>Volumio 初次設定</h2><p>第一次開啟 Volumio 作業系統的時候，<br>必須進行一些設定，<br>不過相當簡單，並不需要打程式碼，<br>且介面也非常易懂。</p>
+<h3 id="第一步-如何進入-Volumio-設定頁面"><a href="#第一步-如何進入-Volumio-設定頁面" class="headerlink" title="第一步 如何進入 Volumio 設定頁面?"></a>第一步 如何進入 Volumio 設定頁面?</h3><p>首先用手機或電腦搜尋一個叫作 <strong>Volumio 的 WIFI熱點</strong>，<br>(預設密碼為volumio2，之後可作更改)<br>連上之後在網頁輸入網址 <strong>volumio.local/</strong>。</p>
+<h3 id="第二步-初始化設定"><a href="#第二步-初始化設定" class="headerlink" title="第二步 初始化設定"></a>第二步 初始化設定</h3><ol>
+<li><p>選擇語言 有繁體中文可供選擇<br><img src="https://i.imgur.com/1oyK5GS.jpg" alt></p>
+</li>
+<li><p>設定裝置名稱<br><img src="https://i.imgur.com/4CiJpaT.jpg" alt><br>這會影響日後用手機或電腦進入控制頁面所要打的網址，<br>像我設定的名字是 SamiMusic，<br>那以後就必須輸入 samimusic.local/ 來進入我的控制頁面，<br>當然，也可以用預設的 volumio就好。</p>
+</li>
+<li><p>選擇你的DAC型號<br><img src="https://i.imgur.com/aSN9q3r.jpg" alt><br>若你沒有 I2S DAC，也可選擇內建的耳機孔輸出<br><img src="https://i.imgur.com/YviWvH8.jpg" alt></p>
+</li>
+<li><p>連WIFI<br><img src="https://i.imgur.com/47c41iL.jpg" alt></p>
+</li>
+<li><p>選擇音樂資料庫</p>
+</li>
+<li><p>自由贊助<br>如果不想贊助，直接按下一步即可。</p>
+</li>
+</ol>
+<p>到這邊初次設定已經完成，可以成功進入播放頁面。<br><img src="https://i.imgur.com/6L7cGxE.jpg" alt></p>
+<p>背景也能換成自己的圖片喔!<br><img src="https://i.imgur.com/WQ5LFFi.png" alt></p>
 
       
     </div>
@@ -357,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/25/pip更新問題/" rel="next" title="[Debug備忘錄] pip更新問題">
-                <i class="fa fa-chevron-left"></i> [Debug備忘錄] pip更新問題
+              <a href="/2019/05/31/Pi_Wifi/" rel="next" title="[樹莓派 Raspberry Pi] 純文字介面(命令列)設定WiFi連線教學">
+                <i class="fa fa-chevron-left"></i> [樹莓派 Raspberry Pi] 純文字介面(命令列)設定WiFi連線教學
               </a>
             
           </div>
@@ -366,10 +397,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/31/Pi_Wifi/" rel="prev" title="[樹莓派 Raspberry Pi] 純文字介面(命令列)設定WiFi連線教學">
-                [樹莓派 Raspberry Pi] 純文字介面(命令列)設定WiFi連線教學 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系統環境"><span class="nav-number">1.</span> <span class="nav-text">系統環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG描述"><span class="nav-number">2.</span> <span class="nav-text">BUG描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG原因"><span class="nav-number">3.</span> <span class="nav-text">BUG原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解決方法"><span class="nav-number">4.</span> <span class="nav-text">解決方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#材料"><span class="nav-number">2.</span> <span class="nav-text">材料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS選擇"><span class="nav-number">3.</span> <span class="nav-text">OS選擇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Volumio-安裝"><span class="nav-number">4.</span> <span class="nav-text">Volumio 安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下載映像檔"><span class="nav-number">4.1.</span> <span class="nav-text">下載映像檔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#將映像檔燒進micorSD"><span class="nav-number">4.2.</span> <span class="nav-text">將映像檔燒進micorSD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Volumio-初次設定"><span class="nav-number">5.</span> <span class="nav-text">Volumio 初次設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-如何進入-Volumio-設定頁面"><span class="nav-number">5.1.</span> <span class="nav-text">第一步 如何進入 Volumio 設定頁面?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-初始化設定"><span class="nav-number">5.2.</span> <span class="nav-text">第二步 初始化設定</span></a></li></ol></li></ol></div>
             
 
           </div>
